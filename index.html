@@ -221,6 +221,52 @@ section{padding:80px 0;}
 .menu-card .cap{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent);font-family:var(--font-body);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;}
 .menu-buttons{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
 
+/* Full menu expander */
+.menu-expand-wrap{max-width:760px;margin:56px auto 0;}
+details.menu-expand{border-top:1px solid rgba(255,255,255,.15);}
+details.menu-expand:last-child{border-bottom:1px solid rgba(255,255,255,.15);}
+details.menu-expand summary{
+  cursor:pointer;padding:20px 4px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  font-family:var(--font-head);text-transform:uppercase;letter-spacing:.05em;font-size:1rem;color:#fff;
+}
+details.menu-expand summary::-webkit-details-marker{display:none;}
+details.menu-expand summary::after{content:"+";font-family:var(--font-body);font-size:1.3rem;line-height:1;color:var(--blue);}
+details.menu-expand[open] summary::after{content:"\2212";}
+.menu-expand-inner{padding:6px 4px 44px;text-align:left;}
+
+.menu-full-group h4{color:var(--blue);font-family:var(--font-head);text-transform:uppercase;letter-spacing:.05em;font-size:1rem;margin:30px 0 12px;}
+.menu-full-group:first-child h4{margin-top:4px;}
+.menu-list{list-style:none;margin:0;padding:0;}
+.menu-item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.12);}
+.mi-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-family:var(--font-body);font-size:1rem;}
+.mi-name{font-weight:600;}
+.mi-price{color:var(--blue);white-space:nowrap;font-size:.95rem;}
+.mi-desc{margin:4px 0 0;font-size:.85rem;color:var(--cream-2);font-style:italic;}
+
+.wine-legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;font-family:var(--font-body);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--cream-2);}
+details.wine-region{border-bottom:1px solid rgba(255,255,255,.1);}
+details.wine-region summary{
+  cursor:pointer;padding:14px 2px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--font-body);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:.9rem;color:var(--cream);
+}
+details.wine-region summary::-webkit-details-marker{display:none;}
+details.wine-region summary::after{content:"+";font-family:var(--font-body);line-height:1;color:var(--blue);}
+details.wine-region[open] summary::after{content:"\2212";}
+.wine-list{list-style:none;margin:0 0 18px;padding:0;}
+.wine-item{
+  display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:8px 0 8px 12px;border-bottom:1px dotted rgba(255,255,255,.08);border-left:3px solid transparent;
+}
+.wine-item.wine-r{border-left-color:var(--wine);}
+.wine-item.wine-w{border-left-color:#cbb35a;}
+.wine-item.wine-p{border-left-color:#c98a9c;}
+.wine-info{display:flex;flex-direction:column;font-family:var(--font-body);}
+.wine-name{font-weight:600;font-size:.92rem;}
+.wine-meta{color:var(--cream-2);font-size:.82rem;}
+.wine-price{white-space:nowrap;color:var(--blue);font-family:var(--font-body);font-size:.9rem;}
+
 /* Live music */
 .live-music{
   position:relative;padding:100px 0;text-align:center;color:#fff;
@@ -370,6 +416,245 @@ footer .foot-links a:hover{color:var(--blue);}
     <div class="menu-buttons">
       <a class="btn btn-primary" href="menus/menu-food.pdf" target="_blank" rel="noopener">Food Menu (PDF)</a>
       <a class="btn btn-outline" href="menus/menu-wine.pdf" target="_blank" rel="noopener">Wine List (PDF)</a>
+    </div>
+
+    <div class="menu-expand-wrap">
+      <details class="menu-expand" id="full-food-menu">
+        <summary>View Full Food Menu</summary>
+        <div class="menu-expand-inner">
+      <div class="menu-full-group">
+        <h4>Tapas &amp; Small Plates</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Asparagus Bacon</span><span class="mi-price">$2.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Bruschetta</span><span class="mi-price">$2.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Fried Mushroom</span><span class="mi-price">$2.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Olive Tapenade</span><span class="mi-price">$3.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Cheese Toast</span><span class="mi-price">$2.00</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Coppa Ham</span><span class="mi-price">$3.70</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Shrimp Tempura</span><span class="mi-price">$4.00</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Clams White Wine</span><span class="mi-price">$3.70</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">French Fries</span><span class="mi-price">$2.70</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Spinach Goat Cheese</span><span class="mi-price">$3.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Patatas Bravas</span><span class="mi-price">$3.00</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Chicken Fingers</span><span class="mi-price">$2.75</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Ham/Cheese Croquette</span><span class="mi-price">$2.75</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Chicken Liver Toast</span><span class="mi-price">$3.50</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Calamari Tempura</span><span class="mi-price">$3.00</span></div></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Baked Mussels</span><span class="mi-price">$4.00</span></div></li>
+        </ul>
+      </div>
+      <div class="menu-full-group">
+        <h4>Sharing Platters</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Charcuterie Platter (5 kinds)</span><span class="mi-price">$13</span></div><p class="mi-desc">Selection of cold cuts served with bread</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Cheese Platter (3 kinds)</span><span class="mi-price">$13</span></div><p class="mi-desc">Selection of cheese served with bread</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Mix Cold Cut &amp; Cheese Platter</span><span class="mi-price">$24</span></div><p class="mi-desc">Selection of 5 cold cuts and 3 cheeses served with bread</p></li>
+        </ul>
+      </div>
+      <div class="menu-full-group">
+        <h4>Starters</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Homemade Foie Gras on Toast (50gr)</span><span class="mi-price">$12</span></div><p class="mi-desc">Duck liver slowly cooked in spices &amp; Poire Williams, served with bread &amp; onion jam</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Seabass Carpaccio</span><span class="mi-price">$9</span></div><p class="mi-desc">Seabass fillet slightly cut with sesame oil, sprout and rocket salad</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Giant Beef Carpaccio</span><span class="mi-price">$12 / $22</span></div><p class="mi-desc">Imported AUZ beef slightly cut, olive oil, parmesan cheese, pine nut, seasoning — M (120gr) / XXL (300gr)</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Pumpkin &amp; Foie Gras Soup</span><span class="mi-price">$9</span></div><p class="mi-desc">Pumpkin soup served with croutons &amp; foie gras</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Seafood Puff – Bouchée à la Reine</span><span class="mi-price">$7.50</span></div><p class="mi-desc">Clams, calamari, shrimp, creamy sauce in puff pastry</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Baked Egg – Oeuf Cocotte</span><span class="mi-price">$6</span></div><p class="mi-desc">Baked egg with mushroom, croutons &amp; bacon</p></li>
+        </ul>
+      </div>
+      <div class="menu-full-group">
+        <h4>Mains</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Caesar Salad</span><span class="mi-price">$10</span></div><p class="mi-desc">Salad, chicken, egg, tomatoes, parmesan, anchovy dressing</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Sea Bass Fillet</span><span class="mi-price">$13</span></div><p class="mi-desc">Served with braised cabbage, pumpkin mash, white wine sauce</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Toulouse Sausage &amp; Mash Potatoes</span><span class="mi-price">$11</span></div><p class="mi-desc">Toulouse sausage served with mashed potatoes, sauce and salad</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Imported AUZ Beef Tartare</span><span class="mi-price">$14</span></div><p class="mi-desc">Beef tartare seasoned, served with French fries and salad</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Chicken Leg Stuffed with Spinach</span><span class="mi-price">$12</span></div><p class="mi-desc">Served with fried potatoes and mushroom sauce</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Welsh Rarebit</span><span class="mi-price">$15</span></div><p class="mi-desc">Bread and ham covered with toasted cheddar in beer, egg and French fries</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Beef Bourguignon</span><span class="mi-price">$16</span></div><p class="mi-desc">(AUZ) beef stew in red wine sauce with carrots, onions, mushrooms, served with mash potatoes</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Choucroute – Sauerkraut</span><span class="mi-price">$16</span></div><p class="mi-desc">Homemade marinated cabbage, 3 pork meats and sausage served with potatoes</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Bouchon AUZ Beef &amp; Truffle Burger</span><span class="mi-price">$14</span></div><p class="mi-desc">(AUZ) beef burger with iceberg, tomatoes, brie cheese and truffle oil sauce, served with French fries</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Duck Breast with Berries</span><span class="mi-price">$15</span></div><p class="mi-desc">Served with fried potatoes, spinach and sweet &amp; sour sauce</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Linguine Foie Gras al Dente</span><span class="mi-price">$15</span></div><p class="mi-desc">Linguine in foie gras (50gr) sauce with forest mushroom, cognac</p></li>
+        </ul>
+      </div>
+      <div class="menu-full-group">
+        <h4>From the Grill</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">AUZ Beef Flank 200gr</span><span class="mi-price">$18</span></div><p class="mi-desc">Beef flank with pepper sauce served with French fries and salad</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">AUZ Beef Rib Eye 300gr</span><span class="mi-price">$26</span></div><p class="mi-desc">Beef rib eye with pepper sauce served with fried potatoes and salad</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">AUZ Beef Flank 1KG</span><span class="mi-price">$75</span></div><p class="mi-desc">For sharing, served with 3 sauces</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">AUZ Beef Giant Rib (2 persons, 1.5kg)</span><span class="mi-price">$125</span></div><p class="mi-desc">Beef prime rib served with fried potatoes, baked tomatoes &amp; asparagus</p></li>
+        </ul>
+      </div>
+      <div class="menu-full-group">
+        <h4>Desserts</h4>
+        <ul class="menu-list">
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Paris Brest</span><span class="mi-price">$6</span></div><p class="mi-desc">Puff pastry filled with praline, roasted hazelnut &amp; salted caramel</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Crème Brûlée</span><span class="mi-price">$5</span></div><p class="mi-desc">Cardamom and vanilla flavoured crème brûlée</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Chocolate Mousse</span><span class="mi-price">$6</span></div><p class="mi-desc">Classic dark chocolate mousse</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Chocolate Fondant</span><span class="mi-price">$6</span></div><p class="mi-desc">Chocolate fondant served with crème anglaise</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Lemon Tart</span><span class="mi-price">$5</span></div><p class="mi-desc">Lemon tart with fresh meringue</p></li>
+          <li class="menu-item"><div class="mi-row"><span class="mi-name">Coupe Colonel</span><span class="mi-price">$6</span></div><p class="mi-desc">Lime sherbet served with vodka</p></li>
+        </ul>
+      </div>        </div>
+      </details>
+
+      <details class="menu-expand" id="full-wine-list">
+        <summary>View Full Wine List</summary>
+        <div class="menu-expand-inner">
+          <div class="wine-legend"><span class="wine-item wine-r" style="display:inline-flex;padding:2px 10px;border-left-width:3px;">Red</span><span class="wine-item wine-w" style="display:inline-flex;padding:2px 10px;border-left-width:3px;">White</span><span class="wine-item wine-p" style="display:inline-flex;padding:2px 10px;border-left-width:3px;">Rosé</span></div>
+        <details class="wine-region">
+          <summary>Loire</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">La Petite Perrière</span><span class="wine-meta">2022 | Sancerre | Sauvignon Blanc</span></span><span class="wine-price">$20</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Petite Perrière</span><span class="wine-meta">2021 | Sancerre | Pinot Noir</span></span><span class="wine-price">$24</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Compte Leloup</span><span class="wine-meta">2018 | Muscadet | Melon de Bourgogne</span></span><span class="wine-price">$30</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Vouvray les Grottes Blanches</span><span class="wine-meta">2020 | Vouvray | Chenin Blanc</span></span><span class="wine-price">$30</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. de la Colline</span><span class="wine-meta">2019 | Chinon | Cabernet Franc</span></span><span class="wine-price">$31</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Guy Saget Marie De Beauregard</span><span class="wine-meta">2020 | Chinon | Cabernet Franc</span></span><span class="wine-price">$33</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Guy Saget Marie De Beauregard</span><span class="wine-meta">2021 | St Nicolas de Bourgueil | Cabernet Franc</span></span><span class="wine-price">$35</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Guy Saget Marie De Beauregard</span><span class="wine-meta">2021 | Saumur Champigny | Cabernet Franc</span></span><span class="wine-price">$36</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château de la Mulonnière “Rouge Baisers”</span><span class="wine-meta">2015 | Loire | Cabernet Franc, Cab. Sauvignon</span></span><span class="wine-price">$37</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. de Terres Blanches “Alchimie”</span><span class="wine-meta">2021 | C. du Giennois | Sauvignon Blanc</span></span><span class="wine-price">$38</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. de Terres Blanches</span><span class="wine-meta">2022 | Sancerre | Sauvignon Blanc</span></span><span class="wine-price">$42</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Perrière</span><span class="wine-meta">2021 | Sancerre | Pinot Noir</span></span><span class="wine-price">$60</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Touraine</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. des 4 Pilliers “Chapitre 21”</span><span class="wine-meta">2021 | Touraine AOC | Sauvignon Blanc</span></span><span class="wine-price">$74</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Les 4 Pilliers “Les Puits aux Chiens”</span><span class="wine-meta">2020 | Touraine | Chenin Blanc</span></span><span class="wine-price">$90</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Languedoc / Sud-Ouest</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Mas Onésime</span><span class="wine-meta">2018 | Faugères | Syrah, Grenache, Mourvèdre, Carignan</span></span><span class="wine-price">$44</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Le Petit James</span><span class="wine-meta">2019 | Cahors | Malbec</span></span><span class="wine-price">$48</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Chemin de Moscou</span><span class="wine-meta">2020 | Languedoc | Syrah</span></span><span class="wine-price">$74</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Villa Mon Rêve</span><span class="wine-meta">2020 | Minervois la Livignière | Syrah</span></span><span class="wine-price">$115</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Méditerranée</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-p"><span class="wine-info"><span class="wine-name">“Florie” – Vignerons du Roy René</span><span class="wine-meta">2022 | IGP Méditerranée | Grenache, Cinsault, Caladoc</span></span><span class="wine-price">$32</span></li>
+            <li class="wine-item wine-p"><span class="wine-info"><span class="wine-name">Les Charmes des Demoiselles</span><span class="wine-meta">2022 | Côtes de Provence AOC | Cinsault, Grenache, Tibouren</span></span><span class="wine-price">$35</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Bourgogne</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Cave d’Azé</span><span class="wine-meta">2020 | Mâcon Villages | Chardonnay</span></span><span class="wine-price">$39</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Bourgogne – Domaine Leflaive</span><span class="wine-meta">2015 | Bourgogne | Chardonnay</span></span><span class="wine-price">$42</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Les Préludes – Terres Secrètes</span><span class="wine-meta">2021 | Saint-Véran | Chardonnay</span></span><span class="wine-price">$49</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dampt Frères – Vieilles Vignes</span><span class="wine-meta">2020 | Chablis | Chardonnay</span></span><span class="wine-price">$51</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. Michel</span><span class="wine-meta">2018 | Viré Clessé | Chardonnay</span></span><span class="wine-price">$65</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. Leflaive</span><span class="wine-meta">2014 | Pernand Vergelesses | Chardonnay</span></span><span class="wine-price">$90</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Sparkling &amp; Champagne</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Maison Moutard – Crément de Bourgogne Brut</span><span class="wine-meta">Bourgogne | Chardonnay, Pinot Noir</span></span><span class="wine-price">$33</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Champagne Moutard “Champs Persin”</span><span class="wine-meta">Champagne | Chardonnay</span></span><span class="wine-price">$42 / $71 (half / full)</span></li>
+            <li class="wine-item wine-p"><span class="wine-info"><span class="wine-name">Champagne Moutard “Rosé Cuvaison”</span><span class="wine-meta">Champagne | Pinot Noir</span></span><span class="wine-price">$75</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Champagne Moutard “M Ice”</span><span class="wine-meta">Champagne | Pinot Noir</span></span><span class="wine-price">$95</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Champagne Moutard “Cuvée des 2 Soeurs”</span><span class="wine-meta">Champagne | Chardonnay, Pinot Noir</span></span><span class="wine-price">$100</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Champagne Moutard “Gold 6 Cépages”</span><span class="wine-meta">Champagne | Chardonnay, Pinot Meunier, Pinot Blanc, Petit Meslier, Arbane, Rouge de Pinot Noir</span></span><span class="wine-price">$215</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Jura &amp; Savoie</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Domaine les Rocailles</span><span class="wine-meta">2020 | Apremont “Symphonie” (Savoie) | Jacquère</span></span><span class="wine-price">$25</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Domaine Jacques Tissot</span><span class="wine-meta">2019 | Arbois (Jura) | Poulsard</span></span><span class="wine-price">$34</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Domaine Jacques Tissot</span><span class="wine-meta">2019 | Arbois (Jura) | Chardonnay</span></span><span class="wine-price">$38</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Domaine Jacques Tissot – Macvin Blanc</span><span class="wine-meta">2019 | Jura | Savagnin (Sweet)</span></span><span class="wine-price">$56</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Grand Rhône</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. la Marquise</span><span class="wine-meta">2022 | Côtes du Rhône | Viognier</span></span><span class="wine-price">$18</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Michel de Varennes</span><span class="wine-meta">2021 | Ventoux | Grenache</span></span><span class="wine-price">$19</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">“Sablet”</span><span class="wine-meta">2021 | Côtes du Rhône Villages | Syrah</span></span><span class="wine-price">$21</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Jaboulet – Les Traverses</span><span class="wine-meta">2021 | Côtes du Ventoux | Cinsault</span></span><span class="wine-price">$22</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. du Moulin d’Oli</span><span class="wine-meta">2021 | Côtes du Rhône | Syrah, Grenache</span></span><span class="wine-price">$23</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Dom. Jaboulet – Parallèle 45</span><span class="wine-meta">2022 | Côtes du Rhône | Viognier, Grenache Blanc</span></span><span class="wine-price">$27</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Jaboulet – Parallèle 45</span><span class="wine-meta">2021 | Côtes du Rhône | Grenache</span></span><span class="wine-price">$27</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. la Floranne “A Fleur de Pampre”</span><span class="wine-meta">2021 | Côtes du Rhône | Grenache, Syrah, Cinsault</span></span><span class="wine-price">$28</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">“Les Classiques”</span><span class="wine-meta">2022 | Ardèche | Chardonnay</span></span><span class="wine-price">$30</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">A Fleur de Pampre Blanc</span><span class="wine-meta">2022 | Côtes du Rhône Villages | Marsanne</span></span><span class="wine-price">$30</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Mariluc</span><span class="wine-meta">2022 | Beaujolais | Gamay</span></span><span class="wine-price">$32</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Guy Farge “Bouquet de Syrah”</span><span class="wine-meta">2021 | Ardèche | Syrah</span></span><span class="wine-price">$32</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Dit-Baron</span><span class="wine-meta">2021 | Brouilly | Gamay</span></span><span class="wine-price">$33</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Bastide St Dominique</span><span class="wine-meta">2021 | Côtes du Rhône | Syrah, Grenache</span></span><span class="wine-price">$33</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Terres Dorées – Beaujolais Classique</span><span class="wine-meta">2022 | Beaujolais | Chardonnay</span></span><span class="wine-price">$35</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Terres Dorées – Beaujolais Rouge “l’Ancien”</span><span class="wine-meta">2022 | Beaujolais | Gamay</span></span><span class="wine-price">$37</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. des Frontières</span><span class="wine-meta">2020 | Juliénas | Gamay</span></span><span class="wine-price">$37</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Terre Pourpre Rouge</span><span class="wine-meta">2021 | C. du Rhône Villages | Syrah, Grenache, Mourvèdre</span></span><span class="wine-price">$44</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Terres Dorées</span><span class="wine-meta">2021 | Côtes de Brouilly | Gamay</span></span><span class="wine-price">$45</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Plaisirs d’Automne – D. Courbis</span><span class="wine-meta">2020 | Saint-Joseph | Syrah</span></span><span class="wine-price">$49</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. de la Tradition</span><span class="wine-meta">2022 | Saint-Amour | Gamay</span></span><span class="wine-price">$50</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Terres Dorées – Moulin à Vent</span><span class="wine-meta">2021 | Beaujolais | Gamay</span></span><span class="wine-price">$54</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Bastide St Dominique</span><span class="wine-meta">2021 | Gigondas | Syrah</span></span><span class="wine-price">$55</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Bastide St Dominique</span><span class="wine-meta">2021 | Cairanne | Syrah, Grenache, Mourvèdre, Carignan</span></span><span class="wine-price">$55</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Réserve de La Bastide St Dominique</span><span class="wine-meta">2021 | Gigondas | Syrah, Grenache, Mourvèdre</span></span><span class="wine-price">$78</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Bastide Saint Dominique</span><span class="wine-meta">2019 | Châteauneuf-du-Pape | Syrah</span></span><span class="wine-price">$84</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Dom. Guy Farge “Passions de Terrasses”</span><span class="wine-meta">2019 | Saint-Joseph | Syrah</span></span><span class="wine-price">$90</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Bertand Stehelin</span><span class="wine-meta">2019 | Châteauneuf-du-Pape | Grenache</span></span><span class="wine-price">$104</span></li>
+          </ul>
+        </details>
+        <details class="wine-region">
+          <summary>Bordeaux</summary>
+          <ul class="wine-list">
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Croix de Mai</span><span class="wine-meta">2019 | Médoc | Merlot, Cabernet Sauvignon</span></span><span class="wine-price">$26</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Marechaux</span><span class="wine-meta">2018 | Blaye Côtes de Bordeaux | Cabernet Franc, Merlot</span></span><span class="wine-price">$27</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Pitray</span><span class="wine-meta">2018 | Castillon Côtes de Bordeaux | Merlot, Cab. Franc, Malbec</span></span><span class="wine-price">$28</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Beauséjour “Cuvée Prestige”</span><span class="wine-meta">2018 | Fronsac | Merlot, Cab. Sauvignon, Cab. Franc</span></span><span class="wine-price">$30</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Loirac</span><span class="wine-meta">2016 | Médoc Cru Bourgeois | Merlot, Cabernet Sauvignon</span></span><span class="wine-price">$32</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Château Mont Perat Blanc</span><span class="wine-meta">2016 | Bordeaux | Sauvignon Blanc</span></span><span class="wine-price">$35</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Tour Saint Bonnet</span><span class="wine-meta">2016 | Médoc | Cabernet Sauvignon, Merlot</span></span><span class="wine-price">$36</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Saint Pierre de Corbian</span><span class="wine-meta">2017 | Saint-Estèphe | Cab. Franc, Merlot</span></span><span class="wine-price">$40</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Les Sieurs de Bellegrave</span><span class="wine-meta">2016 | Pauillac | Cab. Sauvignon, Cab. Franc, Merlot</span></span><span class="wine-price">$45</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Cap de Faugère</span><span class="wine-meta">2016 | Castillon | Merlot, Cab. Franc, Cab. Sauvignon</span></span><span class="wine-price">$46</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château La Prade</span><span class="wine-meta">2019 | Franc Côtes de Bordeaux | Merlot</span></span><span class="wine-price">$48</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château de la Dauphine</span><span class="wine-meta">2018 | Fronsac | Merlot</span></span><span class="wine-price">$49</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château de Malleret</span><span class="wine-meta">2016 | Haut-Médoc | Cab. Sauvignon, Merlot, Petit Verdot</span></span><span class="wine-price">$52</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château de Malleret</span><span class="wine-meta">2015 | Haut-Médoc | Cab. Sauvignon, Merlot, Petit Verdot</span></span><span class="wine-price">$55</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Haut Bergey</span><span class="wine-meta">2015 | Pessac-Léognan | Merlot, Cabernet Sauvignon</span></span><span class="wine-price">$56</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Clos Floridene</span><span class="wine-meta">2015 | Graves | Cabernet Sauvignon</span></span><span class="wine-price">$56</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Les Carmes de Rieusec</span><span class="wine-meta">2015 | Sauternes | Sauvignon Blanc, Sémillon</span></span><span class="wine-price">$58</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Clos Junet</span><span class="wine-meta">2018 | Saint-Emilion Gd Cru | Merlot, Cabernet Franc, Malbec</span></span><span class="wine-price">$58</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Haut Pauillac</span><span class="wine-meta">2017 | Pauillac | Cabernet Sauvignon, Cabernet Franc, Merlot</span></span><span class="wine-price">$59</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Clos Lunelles (Pavie)</span><span class="wine-meta">2016 | Castillon | Cab. Sauvignon, Cab. Franc, Merlot</span></span><span class="wine-price">$62</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Duluc Branaire Ducru</span><span class="wine-meta">2016 | Saint-Julien | Cabernet Sauvignon</span></span><span class="wine-price">$63</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château De Fonbel</span><span class="wine-meta">2015 | St-Emilion Gd Cru | Petit Verdot, Carménère, Cab. Sauvignon</span></span><span class="wine-price">$65</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Croix Cardinal</span><span class="wine-meta">2018 | Saint-Emilion Gd Cru | Merlot</span></span><span class="wine-price">$65</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Ballade de la Pointe</span><span class="wine-meta">2019 | Pomerol | Merlot, Cabernet Franc</span></span><span class="wine-price">$65</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Lalande Borie</span><span class="wine-meta">2017 | Saint-Julien | Cabernet Sauvignon</span></span><span class="wine-price">$67</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Clos La Gaffeliere</span><span class="wine-meta">2016 | Saint-Emilion Gd Cru | Cab. Sauvignon, Merlot</span></span><span class="wine-price">$68</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Deyrem Valentin</span><span class="wine-meta">2016 | Margaux | Cab. Sauvignon, Petit Verdot, Merlot</span></span><span class="wine-price">$72</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Haut Simard</span><span class="wine-meta">2010 | Saint-Emilion | Merlot, Cabernet Franc</span></span><span class="wine-price">$79</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Croix de Beauséjour</span><span class="wine-meta">2016 | Saint-Emilion Gd Cru Classé | Merlot, Cab. Franc</span></span><span class="wine-price">$80</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Duluc Branaire Ducru</span><span class="wine-meta">2018 | Saint-Julien | Cab. Sauvignon, Merlot</span></span><span class="wine-price">$81</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Labegorge</span><span class="wine-meta">2018 | Margaux | Cab. Sauvignon, Merlot, Petit Verdot</span></span><span class="wine-price">$82</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Picque Caillou</span><span class="wine-meta">2019 | Pessac-Léognan | Cab. Sauvignon, Merlot</span></span><span class="wine-price">$83</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Clos Lunelle</span><span class="wine-meta">2016 | Castillon | Merlot, Cabernet Franc, Cabernet Sauvignon</span></span><span class="wine-price">$83</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Brio de Cantenac Brown</span><span class="wine-meta">2019 | Margaux | Cab. Sauvignon, Cab. Franc, Merlot</span></span><span class="wine-price">$84</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Cap de Mourlin</span><span class="wine-meta">2016 | St-Emilion Gd Cru Classé | Cab. Franc, Merlot</span></span><span class="wine-price">$84</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Bel Air</span><span class="wine-meta">2016 | Pomerol | Merlot</span></span><span class="wine-price">$87</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Château Doisy Daene</span><span class="wine-meta">2009 | Sauternes | Sémillon</span></span><span class="wine-price">$95</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">La Fleur de Boüard</span><span class="wine-meta">2010 | Lalande de Pomerol | Merlot</span></span><span class="wine-price">$121</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Chauvin</span><span class="wine-meta">2010 | Saint-Emilion Gd Cru | Merlot</span></span><span class="wine-price">$143</span></li>
+            <li class="wine-item wine-r"><span class="wine-info"><span class="wine-name">Château Marquis d’Alesme</span><span class="wine-meta">2015 | Margaux Gd Cru Classé | Cabernet Sauvignon</span></span><span class="wine-price">$195</span></li>
+            <li class="wine-item wine-w"><span class="wine-info"><span class="wine-name">Château D’Yquem</span><span class="wine-meta">1997 | Sauternes | Sémillon</span></span><span class="wine-price">$650</span></li>
+          </ul>
+        </details>        </div>
+      </details>
     </div>
   </div>
 </section>
