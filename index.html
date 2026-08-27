@@ -16,7 +16,17 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Bouchon Wine Bar">
 
-<link rel="icon" href="images/logo-dark.png">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bouchon Wine Bar — French Restaurant &amp; Wine Bar in Phnom Penh">
+<meta name="twitter:description" content="Classic French cuisine, natural wines and live music in a colonial house in the heart of Phnom Penh. Open daily 4PM–midnight.">
+<meta name="twitter:image" content="https://www.bouchon-wine-bar.com/images/hero.jpg">
+
+<meta name="theme-color" content="#33312e">
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
 <!-- Brand fonts: RelayCond-Bold (titles) / DIN Pro Condensed (body).
      No licensed webfont files are in this project yet, so this page:
@@ -40,6 +50,11 @@
   "telephone": "+855 77 881 103",
   "priceRange": "$$",
   "servesCuisine": ["French", "Wine Bar", "Bar"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "697"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "82 Preah Oknha Ket St. (174), Sangkat Phsar Thmey III",
@@ -122,8 +137,21 @@ h1,h2,h3,.brand{
   font-weight:700;
 }
 a{color:inherit;}
-img{max-width:100%;display:block;}
+img{max-width:100%;display:block;height:auto;}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+.skip-link{
+  position:absolute;top:-100px;left:12px;z-index:999;
+  background:var(--blue);color:#12242b;padding:12px 20px;border-radius:2px;
+  font-family:var(--font-body);font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  text-decoration:none;transition:top .2s;
+}
+.skip-link:focus{top:12px;}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}
 
 /* Header */
 header{
@@ -250,7 +278,9 @@ footer .foot-links a:hover{color:var(--blue);}
 .lightbox{position:fixed;inset:0;background:rgba(10,9,8,.92);display:none;align-items:center;justify-content:center;z-index:200;padding:30px;}
 .lightbox.open{display:flex;}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:2px;}
-.lightbox .close{position:absolute;top:24px;right:32px;color:#fff;font-size:2rem;cursor:pointer;font-family:sans-serif;}
+.lightbox .close{position:absolute;top:24px;right:32px;color:#fff;font-size:2rem;line-height:1;cursor:pointer;font-family:sans-serif;background:none;border:0;padding:8px;}
+.lightbox .close:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.gallery-grid a:focus-visible,.nav-links a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
 
 @media (max-width:900px){
   .nav-links,.nav-cta .btn-outline{display:none;}
@@ -269,13 +299,15 @@ footer .foot-links a:hover{color:var(--blue);}
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header>
   <div class="nav">
     <div class="brand-block">
-      <img class="logo" src="images/logo-dark.png" alt="Bouchon Wine Bar logo">
+      <img class="logo" src="images/logo-dark.png" alt="Bouchon Wine Bar logo" width="300" height="300">
     </div>
     <nav>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#live-music">Live Music</a></li>
@@ -286,14 +318,16 @@ footer .foot-links a:hover{color:var(--blue);}
     </nav>
     <div class="nav-cta">
       <a class="btn btn-outline" href="tel:+85577881103">Call to Reserve</a>
-      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">☰</button>
     </div>
   </div>
 </header>
 
+<main id="main">
+
 <section class="hero" id="top">
   <div class="hero-content">
-    <img class="badge" src="images/logo-light.png" alt="Bouchon Wine Bar">
+    <img class="badge" src="images/logo-light.png" alt="Bouchon Wine Bar" width="300" height="300">
     <h1>French Restaurant &amp; Wine Bar in Phnom Penh</h1>
     <p class="sub">Classic French cuisine, natural wines and live music, served in a colonial house in the heart of the city — indoors or on the terrace.</p>
     <div class="actions">
@@ -306,7 +340,7 @@ footer .foot-links a:hover{color:var(--blue);}
 
 <section id="about">
   <div class="wrap about">
-    <img src="images/about.jpg" alt="Inside Bouchon Wine Bar, a French restaurant in downtown Phnom Penh">
+    <img src="images/about.jpg" alt="Inside Bouchon Wine Bar, a French restaurant in downtown Phnom Penh" width="1600" height="1066" loading="lazy">
     <div>
       <div class="eyebrow">Our Story</div>
       <h2>A Piece of France in Downtown Phnom Penh</h2>
@@ -329,9 +363,9 @@ footer .foot-links a:hover{color:var(--blue);}
       <h2>Classic French Cuisine</h2>
     </div>
     <div class="menu-grid">
-      <div class="menu-card"><img src="images/food-carpaccio.jpg" alt="Beef carpaccio at Bouchon Wine Bar"><div class="cap">Beef Carpaccio</div></div>
-      <div class="menu-card"><img src="images/food-foiegras.jpg" alt="Foie gras served at Bouchon Wine Bar"><div class="cap">Foie Gras</div></div>
-      <div class="menu-card"><img src="images/food-burger.jpg" alt="French bistro burger and fries at Bouchon Wine Bar"><div class="cap">Bistro Burger &amp; Fries</div></div>
+      <div class="menu-card"><img src="images/food-carpaccio.jpg" alt="Beef carpaccio at Bouchon Wine Bar" width="1000" height="666" loading="lazy"><div class="cap">Beef Carpaccio</div></div>
+      <div class="menu-card"><img src="images/food-foiegras.jpg" alt="Foie gras served at Bouchon Wine Bar" width="1000" height="666" loading="lazy"><div class="cap">Foie Gras</div></div>
+      <div class="menu-card"><img src="images/food-burger.jpg" alt="French bistro burger and fries at Bouchon Wine Bar" width="1000" height="666" loading="lazy"><div class="cap">Bistro Burger &amp; Fries</div></div>
     </div>
     <div class="menu-buttons">
       <a class="btn btn-primary" href="menus/menu-food.pdf" target="_blank" rel="noopener">Food Menu (PDF)</a>
@@ -362,16 +396,16 @@ footer .foot-links a:hover{color:var(--blue);}
       <h2>Life at Bouchon</h2>
     </div>
     <div class="gallery-grid">
-      <a href="images/gallery/g1.jpg" data-lightbox><img src="images/gallery/g1.jpg" alt="Cocktail at Bouchon Wine Bar Phnom Penh"></a>
-      <a href="images/gallery/g2.jpg" data-lightbox><img src="images/gallery/g2.jpg" alt="Bar ambiance at Bouchon Wine Bar"></a>
-      <a href="images/gallery/g3.jpg" data-lightbox><img src="images/gallery/g3.jpg" alt="Craft cocktail with lemon and thyme"></a>
-      <a href="images/gallery/g4.jpg" data-lightbox><img src="images/gallery/g4.jpg" alt="Bartender preparing cocktails at Bouchon"></a>
-      <a href="images/gallery/g5.jpg" data-lightbox><img src="images/gallery/g5.jpg" alt="Guests dining on the terrace"></a>
-      <a href="images/gallery/g6.jpg" data-lightbox><img src="images/gallery/g6.jpg" alt="Wine being poured at Bouchon Wine Bar"></a>
-      <a href="images/gallery/g7.jpg" data-lightbox><img src="images/gallery/g7.jpg" alt="French dish plated at Bouchon"></a>
-      <a href="images/gallery/g8.jpg" data-lightbox><img src="images/gallery/g8.jpg" alt="French cuisine dish at Bouchon Wine Bar"></a>
-      <a href="images/gallery/g9.jpg" data-lightbox><img src="images/gallery/g9.jpg" alt="Drinks served at Bouchon Wine Bar"></a>
-      <a href="images/gallery/g10.jpg" data-lightbox><img src="images/gallery/g10.jpg" alt="Grilled ribeye steak and fries at Bouchon Wine Bar"></a>
+      <a href="images/gallery/g1.jpg" data-lightbox aria-label="View enlarged photo: Cocktail at Bouchon Wine Bar Phnom Penh"><img src="images/gallery/g1.jpg" alt="Cocktail at Bouchon Wine Bar Phnom Penh" width="666" height="1000" loading="lazy"></a>
+      <a href="images/gallery/g2.jpg" data-lightbox aria-label="View enlarged photo: Bar ambiance at Bouchon Wine Bar"><img src="images/gallery/g2.jpg" alt="Bar ambiance at Bouchon Wine Bar" width="1000" height="667" loading="lazy"></a>
+      <a href="images/gallery/g3.jpg" data-lightbox aria-label="View enlarged photo: Craft cocktail with lemon and thyme"><img src="images/gallery/g3.jpg" alt="Craft cocktail with lemon and thyme" width="1000" height="667" loading="lazy"></a>
+      <a href="images/gallery/g4.jpg" data-lightbox aria-label="View enlarged photo: Bartender preparing cocktails at Bouchon"><img src="images/gallery/g4.jpg" alt="Bartender preparing cocktails at Bouchon" width="1000" height="667" loading="lazy"></a>
+      <a href="images/gallery/g5.jpg" data-lightbox aria-label="View enlarged photo: Guests dining on the terrace"><img src="images/gallery/g5.jpg" alt="Guests dining on the terrace" width="1000" height="666" loading="lazy"></a>
+      <a href="images/gallery/g6.jpg" data-lightbox aria-label="View enlarged photo: Wine being poured at Bouchon Wine Bar"><img src="images/gallery/g6.jpg" alt="Wine being poured at Bouchon Wine Bar" width="1000" height="666" loading="lazy"></a>
+      <a href="images/gallery/g7.jpg" data-lightbox aria-label="View enlarged photo: French dish plated at Bouchon"><img src="images/gallery/g7.jpg" alt="French dish plated at Bouchon" width="1000" height="666" loading="lazy"></a>
+      <a href="images/gallery/g8.jpg" data-lightbox aria-label="View enlarged photo: French cuisine dish at Bouchon Wine Bar"><img src="images/gallery/g8.jpg" alt="French cuisine dish at Bouchon Wine Bar" width="1000" height="666" loading="lazy"></a>
+      <a href="images/gallery/g9.jpg" data-lightbox aria-label="View enlarged photo: Drinks served at Bouchon Wine Bar"><img src="images/gallery/g9.jpg" alt="Drinks served at Bouchon Wine Bar" width="1000" height="667" loading="lazy"></a>
+      <a href="images/gallery/g10.jpg" data-lightbox aria-label="View enlarged photo: Grilled ribeye steak and fries at Bouchon Wine Bar"><img src="images/gallery/g10.jpg" alt="Grilled ribeye steak and fries at Bouchon Wine Bar" width="1000" height="666" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -436,8 +470,10 @@ footer .foot-links a:hover{color:var(--blue);}
   </div>
 </section>
 
+</main>
+
 <footer>
-  <img src="images/logo-landscape.png" alt="Bouchon Wine Bar">
+  <img src="images/logo-landscape.png" alt="Bouchon Wine Bar" width="490" height="240" loading="lazy">
   <div>82 Preah Oknha Ket St. (174), Phnom Penh, Cambodia &nbsp;·&nbsp; +855 77 881 103</div>
   <div class="foot-links">
     <a href="#top">Back to top</a>
@@ -447,8 +483,8 @@ footer .foot-links a:hover{color:var(--blue);}
   <div style="margin-top:16px;opacity:.6;">&copy; <span id="year"></span> Bouchon Wine Bar. All rights reserved.</div>
 </footer>
 
-<div class="lightbox" id="lightbox">
-  <span class="close" id="lightbox-close">&times;</span>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button type="button" class="close" id="lightbox-close" aria-label="Close photo viewer">&times;</button>
   <img id="lightbox-img" src="" alt="">
 </div>
 
@@ -469,20 +505,40 @@ toggle.addEventListener('click', () => {
   navLinks.style.background = 'var(--charcoal)';
   navLinks.style.padding = '20px 24px';
   navLinks.style.gap = '18px';
+  toggle.setAttribute('aria-expanded', String(!isOpen));
 });
 
 // lightbox
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+let lastTrigger = null;
+
+function openLightbox(a){
+  lastTrigger = a;
+  lightboxImg.src = a.getAttribute('href');
+  lightboxImg.alt = a.querySelector('img') ? a.querySelector('img').alt : '';
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  lightboxClose.focus();
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  if (lastTrigger) lastTrigger.focus();
+}
+
 document.querySelectorAll('[data-lightbox]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    lightboxImg.src = a.getAttribute('href');
-    lightbox.classList.add('open');
+    openLightbox(a);
   });
 });
-document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
-lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.classList.remove('open'); });
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
 </script>
 
 </body>
